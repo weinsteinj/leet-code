@@ -54,4 +54,42 @@ public class BinarySearch {
             return false;
     }
 
+    public int searchInsert(int[] nums, int target) {
+        int targetIndex = -1;
+        if (nums.length == 1 && nums[0] < target) {
+            // can't have neg index, but if target is greater than nums[0], and length of nums == 1, target must be at first position in the array i.e. index 0;
+            return 1;
+        } else if (nums.length == 1 && nums[0] >= target){
+            return 0;
+        }
+
+        int leftBound = 0;
+        int rightBound = nums.length - 1;
+
+        while (rightBound - leftBound >= 0) {
+            int middle = leftBound + ((rightBound - leftBound) / 2);
+
+            if (nums[middle] == target) {
+                targetIndex = middle;
+                return targetIndex;
+            } else if (nums[middle] < target) {
+                leftBound = middle + 1;
+                targetIndex = middle + 1;
+            } else {
+                // for case if nums[middle] > target
+                rightBound = middle - 1;
+            // code below accounts for edge cases with small array length and target not exactly matching an array element
+                if (middle >= 1 && target <= nums[middle - 1]) {
+                    targetIndex = middle - 1;
+                } else if (middle >= 1 && target > nums[middle - 1]) {
+                    targetIndex = middle;
+                }
+                else {
+                    targetIndex = 0;
+                }
+            }
+        }
+        return targetIndex;
+    }
+
 }
