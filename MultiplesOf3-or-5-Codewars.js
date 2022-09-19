@@ -1,4 +1,4 @@
-//Multiples of 3 or 5 (JS, Java)
+//Multiples of 3 or 5 (JS)
 
 function solution(number){
   let num = number-1;

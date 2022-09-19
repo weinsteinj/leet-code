@@ -20,5 +20,13 @@ public class App {
 
         DataStructuresScratch data = new DataStructuresScratch();
         data.dataStructures();
+        BinarySearch bsearch = new BinarySearch();
+        int[] arr = new int[]{5,8,77,88,105,222};
+        System.out.println(bsearch.searchInsert(arr, 79));
+
+        int[][] twoDimensionalArray = new int[][]{{2,2,4},{4,2,5},{8,5,7},{1,1,2},{4,5,8},{8,7,8},{9,9,8}};
+        System.out.println(Arrays.toString(twoDimensionalArray[1]));
+
+
     }
 }
